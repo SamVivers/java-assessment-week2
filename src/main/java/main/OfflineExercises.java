@@ -144,6 +144,9 @@ public class OfflineExercises {
 					n = j;
 				}
 			}
+			if (j > n) {
+				break;
+			}
 		}
 		return n;
 
