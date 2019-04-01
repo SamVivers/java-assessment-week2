@@ -1,4 +1,4 @@
-package main;
+﻿package main;
 
 import static org.junit.Assert.assertFalse;
 
@@ -87,6 +87,7 @@ public class OfflineExercises {
 			return false;
 		}	
 	}
+	// Not all cases considered
 
 	// Given a string and an int n, return a string that removes n letters from the 'middle' of the string.
 	// The string length will be at least n, and be odd when the length of the input is odd.
@@ -137,13 +138,11 @@ public class OfflineExercises {
 
 	public int superBlock(String input) {
 		int n = 0;
-		for (int i = 0; i < input.length() - 2; i++) {
-			n = 1;
-			if (input.substring(i, i + 1).equals(input.substring(i + 1, i + 2))) {
-				n = 2;
-			}
-			if (input.substring(i, i + 2).equals(input.substring(i + 1, i + 3))) {
-				n = 3;
+		for (int j = 1; j <= input.length() ; j++) {
+			for (int i = 0; i < input.length() - j + 1; i++) {
+				if (input.substring(i, i + j - 1).equals(input.substring(i + 1, i + j))) {
+					n = j;
+				}
 			}
 		}
 		return n;
@@ -211,173 +210,45 @@ public class OfflineExercises {
 	
 	
 	public int largest(String arg1) {
-		int a0 = 0;
-		int a1 = 0;
-		int a2 = 0;
-		int a3 = 0;
-		int a4 = 0;
-		int b = 0;
-		int c = 0;
-		int d = 0;
-		int e = 0;
+		int a = 0;
 		int n = 0;
-		String[] str = arg1.split(" ");
-		for (int i = 0; i < str[0].length(); i++) {
-			if (str[0].substring(i, i + 1).equals("1")) {
-				a0 += 1;
+		for (int i = 0; i < arg1.length(); i++) {
+			if (arg1.substring(i, i + 1).equals("1")) {
+				a += 1;
 			}
-			if (str[0].substring(i, i + 1).equals("2")) {
-				a0 += 2;
+			if (arg1.substring(i, i + 1).equals("2")) {
+				a += 2;
 			}
-			if (str[0].substring(i, i + 1).equals("3")) {
-				a0 += 3;
+			if (arg1.substring(i, i + 1).equals("3")) {
+				a += 3;
 			}
-			if (str[0].substring(i, i + 1).equals("4")) {
-				a0 += 4;
+			if (arg1.substring(i, i + 1).equals("4")) {
+				a += 4;
 			}
-			if (str[0].substring(i, i + 1).equals("5")) {
-				a0 += 5;
+			if (arg1.substring(i, i + 1).equals("5")) {
+				a += 5;
 			}
-			if (str[0].substring(i, i + 1).equals("6")) {
-				a0 += 6;
+			if (arg1.substring(i, i + 1).equals("6")) {
+				a += 6;
 			}
-			if (str[0].substring(i, i + 1).equals("7")) {
-				a0 += 7;
+			if (arg1.substring(i, i + 1).equals("7")) {
+				a += 7;
 			}
-			if (str[0].substring(i, i + 1).equals("8")) {
-				a0 += 8;
+			if (arg1.substring(i, i + 1).equals("8")) {
+				a += 8;
 			}
-			if (str[0].substring(i, i + 1).equals("9")) {
-				a0 += 9;
+			if (arg1.substring(i, i + 1).equals("9")) {
+				a += 9;
+			}
+			if (arg1.substring(i, i + 1).equals(" ") || i == arg1.length() -1) {
+				if (a > n) {
+					n = a;
+				}
+				a = 0;
 			}
 		}
-		for (int i = 0; i < str[1].length(); i++) {
-			if (str[1].substring(i, i + 1).equals("1")) {
-				a1 += 1;
-			}
-			if (str[1].substring(i, i + 1).equals("2")) {
-				a1 += 2;
-			}
-			if (str[1].substring(i, i + 1).equals("3")) {
-				a1 += 3;
-			}
-			if (str[1].substring(i, i + 1).equals("4")) {
-				a1 += 4;
-			}
-			if (str[1].substring(i, i + 1).equals("5")) {
-				a1 += 5;
-			}
-			if (str[1].substring(i, i + 1).equals("6")) {
-				a1 += 6;
-			}
-			if (str[1].substring(i, i + 1).equals("7")) {
-				a1 += 7;
-			}
-			if (str[1].substring(i, i + 1).equals("8")) {
-				a1 += 8;
-			}
-			if (str[1].substring(i, i + 1).equals("9")) {
-				a1 += 9;
-			}
-		}
-		for (int i = 0; i < str[2].length(); i++) {
-			if (str[2].substring(i, i + 1).equals("1")) {
-				a2 += 1;
-			}
-			if (str[2].substring(i, i + 1).equals("2")) {
-				a2 += 2;
-			}
-			if (str[2].substring(i, i + 1).equals("3")) {
-				a2 += 3;
-			}
-			if (str[2].substring(i, i + 1).equals("4")) {
-				a2 += 4;
-			}
-			if (str[2].substring(i, i + 1).equals("5")) {
-				a2 += 5;
-			}
-			if (str[2].substring(i, i + 1).equals("6")) {
-				a2 += 6;
-			}
-			if (str[2].substring(i, i + 1).equals("7")) {
-				a2 += 7;
-			}
-			if (str[2].substring(i, i + 1).equals("8")) {
-				a2 += 8;
-			}
-			if (str[2].substring(i, i + 1).equals("9")) {
-				a2 += 9;
-			}
-		}
-		if (str.length > 3) {
-			for (int i = 0; i < str[3].length(); i++) {
-				if (str[3].substring(i, i + 1).equals("1")) {
-					a3 += 1;
-				}
-				if (str[3].substring(i, i + 1).equals("2")) {
-					a3 += 2;
-				}
-				if (str[3].substring(i, i + 1).equals("3")) {
-					a3 += 3;
-				}
-				if (str[3].substring(i, i + 1).equals("4")) {
-					a3 += 4;
-				}
-				if (str[3].substring(i, i + 1).equals("5")) {
-					a3 += 5;
-				}
-				if (str[3].substring(i, i + 1).equals("6")) {
-					a3 += 6;
-				}
-				if (str[3].substring(i, i + 1).equals("7")) {
-					a3 += 7;
-				}
-				if (str[3].substring(i, i + 1).equals("8")) {
-					a3 += 8;
-				}
-				if (str[3].substring(i, i + 1).equals("9")) {
-					a3 += 9;
-				}
-			}
-		}
-		if (str.length > 4) {
-			for (int i = 0; i < str[4].length(); i++) {
-				if (str[4].substring(i, i + 1).equals("1")) {
-					a4 += 1;
-				}
-				if (str[4].substring(i, i + 1).equals("2")) {
-					a4 += 2;
-				}
-				if (str[4].substring(i, i + 1).equals("3")) {
-					a4 += 3;
-				}
-				if (str[4].substring(i, i + 1).equals("4")) {
-					a4 += 4;
-				}
-				if (str[4].substring(i, i + 1).equals("5")) {
-					a4 += 5;
-				}
-				if (str[4].substring(i, i + 1).equals("6")) {
-					a4 += 6;
-				}
-				if (str[4].substring(i, i + 1).equals("7")) {
-					a4 += 7;
-				}
-				if (str[4].substring(i, i + 1).equals("8")) {
-					a4 += 8;
-				}
-				if (str[4].substring(i, i + 1).equals("9")) {
-					a4 += 9;
-				}
-			}
-		}
-		b = Math.max(a0, a1);
-		c = Math.max(a2, a3);
-		d = Math.max(a4, b);
-		e = Math.max(c, d);	
-		
-		return e;
-	} //I'm sure there's a better way
+	return n;
+	}
 	
 	
 }
